@@ -3,7 +3,8 @@ library(dplyr)
 library(plotly)
 library(tidyr)
 passing_temp = read.csv("./../data/passing_temp.csv") %>% select(GSIS_ID,TEAM,FULL_NAME,PROFILE_ID,passing_yds,temp)
-
+player = readRDS("./../data/player.rds") %>% filter(status=="Active") %>% filter(position %in% c("RB","QB","WR"))
+play_player = readRDS("./../data/play_player.rds") %>% filter(player_id %in% player$player_id)
 function(input, output, session) {
 
     output$teamBox = renderUI( selectInput("team", "Choose Team #1:",
