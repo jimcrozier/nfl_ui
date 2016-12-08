@@ -17,7 +17,9 @@ function(input, output, session) {
        if(input$team == 'All') {
             selectInput("player", "Choose Player #1:",
                                             choices =  sort(player[ player$position==input$position & !is.na(player$full_name) & player$status== "Active","full_name"]),
-                                            selected = "Matt Ryan")
+                                            selected = ifelse(player$position=="QB","Matt Ryan",
+                                                              ifelse(player$position=="WR","Julio Jones",
+                                                                     ifelse(player$position=="RB","Devonta Freeman",NA))))
            } else {
 
      selectInput("player", "Choose Player #1:",
