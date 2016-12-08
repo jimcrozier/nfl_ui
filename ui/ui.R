@@ -13,8 +13,8 @@ dashboardPage(
         uiOutput("teamBox"),
 uiOutput("playerBox"),
         uiOutput("teamBox_p2"),
-uiOutput("playerBox_p2")),
-        menuItem("Head to Head", tabName =  "rawdata", icon = icon("th"))
+uiOutput("playerBox_p2"))
+        #menuItem("Head to Head", tabName =  "rawdata", icon = icon("th"))
     )),
   dashboardBody(
     tabItems(
